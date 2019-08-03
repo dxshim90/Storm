@@ -1,10 +1,12 @@
 import React from "react";
 import Data from "../../assets/Data";
 import EmployeeTable from "../../Components/EmployeeTable/EmployeeTable";
+import "./Employees.css";
 
 class Employees extends React.Component {
   state = {
-    employees: Data
+    employees: Data,
+    searchTerm: ""
   };
 
   // async componentDidMount() {
@@ -17,16 +19,27 @@ class Employees extends React.Component {
   //   });
   // }
 
-  // async componentDidMount() {
-  //   this.setState({
-  //     employees: Data
-  //   });
-  // }
+  onChange = e => {
+    this.setState({
+      searchTerm: e.target.value
+    });
+  };
 
   render() {
+    const filter = this.state.employees.results.filter(employee => {
+      return employee.first_Name
+        .toLowerCase()
+        .includes(this.state.searchTerm.toLowerCase());
+    });
     return (
-      <div>
-        <EmployeeTable data={this.state.employees} />
+      <div className="employee-con">
+        <input
+          placeholder="Search..."
+          type="text"
+          onChange={this.onChange}
+          value={this.state.searchTerm}
+        />
+        <EmployeeTable data={filter} />
       </div>
     );
   }

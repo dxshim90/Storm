@@ -4,8 +4,7 @@ import "./EmployeeTable.css";
 
 class EmployeeTable extends React.Component {
   renderTableData = props => {
-    console.log(this.props.data.results);
-    return this.props.data.results.map(employee => {
+    return this.props.data.map(employee => {
       const name = `${employee.first_Name} ${employee.last_Name}`;
       return (
         <tr className="row" key={employee.id}>
