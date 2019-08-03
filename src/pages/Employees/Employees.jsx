@@ -2,6 +2,7 @@ import React from "react";
 import Data from "../../assets/Data";
 import EmployeeTable from "../../Components/EmployeeTable/EmployeeTable";
 import "./Employees.css";
+import { Redirect } from "react-router-dom";
 
 class Employees extends React.Component {
   state = {
@@ -26,6 +27,9 @@ class Employees extends React.Component {
   };
 
   render() {
+    if (!localStorage.authuser) {
+      return <Redirect to="/" />;
+    }
     const filter = this.state.employees.results.filter(employee => {
       return employee.first_Name
         .toLowerCase()
