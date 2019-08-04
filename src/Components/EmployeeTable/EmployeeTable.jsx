@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "reactstrap";
 import "./EmployeeTable.css";
+import { Link } from "react-router-dom";
 
 class EmployeeTable extends React.Component {
   renderTableData = props => {
@@ -8,9 +9,17 @@ class EmployeeTable extends React.Component {
       const name = `${employee.first_Name} ${employee.last_Name}`;
       return (
         <tr className="row" key={employee.id}>
-          <td>{employee.identifier}</td>
+          <Link
+            to={{
+              pathname: `/employee/${employee.id}`,
+              customObject: employee
+            }}
+          >
+            <td>{employee.identifier}</td>
+          </Link>
           <td>{name}</td>
           <td>{employee.email}</td>
+
           <td>{employee.createdDate}</td>
         </tr>
       );
