@@ -21,6 +21,7 @@ class Employees extends React.Component {
   // }
 
   onChange = e => {
+    e.preventDefault();
     this.setState({
       searchTerm: e.target.value
     });

@@ -19,8 +19,13 @@ class EmployeeTable extends React.Component {
           </Link>
           <td>{name}</td>
           <td>{employee.email}</td>
-
           <td>{employee.createdDate}</td>
+          <td>
+            {employee.employeeDepartments.map(department => {
+              return <td>{department.employeeDepartment.description}</td>;
+            })}
+          </td>
+          <td>{employee.isDeleted === true ? "Deleted" : "Active"}</td>
         </tr>
       );
     });
