@@ -3,16 +3,12 @@ import Logo from "../../assets/StormLogo.png";
 import "./AppNac.css";
 import { Button } from "reactstrap";
 import { Link, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class AppNav extends React.Component {
-  state = {
-    isloggedin: false
-  };
-  logOut = () => {
+  logOut = props => {
     localStorage.removeItem("authuser");
-    this.setState({
-      logout: false
-    });
+    this.props.history.push("/");
   };
   render() {
     return (
@@ -42,4 +38,4 @@ class AppNav extends React.Component {
   }
 }
 
-export default AppNav;
+export default withRouter(AppNav);

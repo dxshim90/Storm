@@ -36,7 +36,9 @@ class Employee extends React.Component {
 
   //Update Employee
   onSubmit = async e => {
+    e.preventDefault();
     console.log(this.state);
+    alert("Employee Updated");
     //   const {
     //     id,
     //     first_Name,

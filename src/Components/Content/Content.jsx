@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import Landing from "../../pages/Landing/Landing";
 import Login from "../../pages/Login/Login";
 import Employees from "../../pages/Employees/Employees";
@@ -16,4 +16,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default withRouter(Content);
