@@ -1,6 +1,7 @@
 import React from "react";
 import Departments from "../../assets/Departments";
 import "./Employee.css";
+import { Redirect } from "react-router-dom";
 
 class Employee extends React.Component {
   state = {
@@ -85,6 +86,9 @@ class Employee extends React.Component {
   // }
 
   render(props) {
+    if (!localStorage.authuser) {
+      return <Redirect to="/" />;
+    }
     const { identifier, first_Name, last_Name, email } = this.state;
     return (
       <div className="form-con">

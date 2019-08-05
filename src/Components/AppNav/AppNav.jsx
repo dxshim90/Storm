@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../assets/StormLogo.png";
 import "./AppNac.css";
 import { Button } from "reactstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 class AppNav extends React.Component {
